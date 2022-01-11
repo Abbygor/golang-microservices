@@ -5,10 +5,14 @@ import (
 	"testing"
 )
 
+var (
+	userDaoMock usersDaoInterface
+)
+
 func TestGetUserNoUserFound(t *testing.T) {
 	// Initialization
 
-	user, err := GetUser(0)
+	user, err := userDaoMock.GetUser(0)
 	if user != nil {
 		t.Error("We are not expecting a user with UserID 0")
 	}
